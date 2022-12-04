@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>student Dashboard</title>
+      <style>
+          /*  import google fonts */
+          @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+          *{
+            margin: 0;
+            padding: 0;
+            border: none;
+            outline: none;
+            text-decoration: none;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+          }
+          body{
+            background: rgb(201,233,246);
+          }
+          .main1{
+            width: 65%;
+            margin-left:20%;
+            border: 2px solid black;
+            border-radius: 8px;
+            background-color: rgb(67, 70, 74);
+            color: white;
+            padding-left: 4%;
+          }
+          .main{
+            display: flex;
+            margin-top: 11px;
+          }
+          .n{
+            display: flex;
+            flex-direction: column;
+          }
+          .n label{
+            color: rgb(59, 72, 73);
+            margin: 1rem 3rem;
+            font-size: 22px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            padding-bottom: 12%;
+          }
+          
+          
+          .btn{
+            background-color: rgb(67, 70, 74);
+            border-radius: 5px;
+            padding: 5px;
+            margin: 5px;
+            margin-right: 20px;
+          }
+          .btn:hover{
+            background: rgb(96, 97, 97);
+          }
+          .btn:active{
+            background: rgb(26, 25, 25);
+          }
+        </style>
+  </head>
+  <body>
+    <h1>Welcome <%= data.rollno%> </h1>
+    <form action = "/website" method = "GET">
+      <div align="right">
+        <input type = "submit" class = "btn" value = "LOGOUT" style="color: white;">
+      </div>
+    </form>
+    <div class="main">
+      <nav style="background: white;">
+        <div class="n">
+          <label align="center">Menu</label>
+          <div class="side_bar">
+            <form action = "/aboutcomplain" method = 'GET'>
+              <input type="submit" value="complain" class="btn" style="color: white;">
+            </form>
+            <form action = "/aboutview" method = 'GET'>
+              <input type="submit" value="view status" class="btn" style="color: white;">
+            </form>
+          </div>
+        </div>
+      </nav>
+      <div class="main1">
+        <h2>Student Dashboard</h2>
+        <div class="sheet">
+          <img src ="https://bvrithyderabad.edu.in/wp-content/uploads/2016/12/BVRIT-logo-big-1.png" width="250px" height="150px">
+          <h1>Welcome to BVRITH GRIEVANCE Portal</h1>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
