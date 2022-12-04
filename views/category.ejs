@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+      <title>Category</title>
+        <style>
+            .web_btn{
+                border:none; 
+                padding:15px;
+                background-color: rgb(67, 70, 74);
+                color: white;
+                border-radius: 5px;
+                padding: 5px;
+                
+            }
+            .web_btn:hover{
+                background-color: rgb(0,128,0);
+                transition: 0.7s;
+            }
+            .web_btn:focus{
+                outline-style:solid;
+                box-shadow: 0 0 0 4px black;
+            }
+            .web1_c, .web_c{
+                border: 2px solid black;
+                border-radius: 5%;
+                margin-top: 4%;
+                margin-left: 30%;
+                margin-right: 20%;
+                height: 600px;
+                width: 500px;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                background-color: white;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+            .web_p{
+                padding: 2%;
+                background-color: gray;
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+                margin-left: 10%;
+                margin-right: 10%;
+            }
+            .img_s{
+                margin-left: 10%;
+            }
+            .img_a{
+                padding-left: 35%;
+                color: rgb(50,205,50);
+                margin-top: -120px;
+                font-size: 40px;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+            .btn{
+                background-color: rgb(67, 70, 74);
+                border-radius: 5px;
+                padding: 5px;
+                margin-top: -80px;
+                margin-right: 20px;
+            }
+            .btn:hover{
+                background: rgb(96, 97, 97);
+            }
+            .btn:active{
+                background: rgb(26, 25, 25);
+            }
+    
+        </style>
+    </head>
+    <body class="web_b">
+        <div class="web_p">
+            <img src="https://bvrithyderabad.edu.in/wp-content/uploads/2016/12/sves-logo.png" width="200px" height="150px" class="img_s">
+            <h2 class="img_a">BVRIT HYDERABAD</h2>
+            <form action = "/website" method = "GET">
+                <div align="right">
+                  <input type = "submit" class = "btn" value = "LOGOUT" style="color: white;">
+                </div>
+              </form>
+             <div class="web_c">
+            <center>
+                <h2>Select Type of Category</h2><br><br>
+                <form method="GET" action="webpageSubmit">
+                    <select name="type1" required>
+                        <option value="">--please choose an option</option>
+                        <option value="hostel">Hostel</option>
+                        <option value="transport">Transport</option>
+                        <option value="food">Food</option>
+                    </select><br><br>
+                    <input type="submit" value="SUBMIT" class="web_btn">
+                </form>
+            </center>
+            </div>
+        </div>
+    </body>
+</html>
