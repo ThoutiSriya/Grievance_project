@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+      <title>ISSUES</title>
+        <style>
+            .web_p{
+                padding: 2%;
+                background-color: gray;
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+                margin-left: 10%;
+                margin-right: 10%;
+                /* color: white; */
+                color:black;
+                margin-top: 2%;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+            .img_s{
+                margin-left: 10%;
+            }
+            .img_a{
+                padding-left: 35%;
+                color: rgb(50,205,50);
+                margin-top: -120px;
+                font-size: 40px;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+            .img_b{
+                padding-left: 37%;
+                color: white;
+                margin-top: -50px;
+                font-size: 30px;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+            .btn{
+                background-color: rgb(67, 70, 74);
+                border-radius: 5px;
+                padding: 5px;
+                margin-top: -180px;
+            }
+            .btn:hover{
+                background: rgb(96, 97, 97);
+            }
+            .btn:active{
+                background: rgb(26, 25, 25);
+            }
+        </style>
+  </head>
+  <body class="abcd_b">
+        <div class="web_p">
+            <img src="https://bvrithyderabad.edu.in/wp-content/uploads/2016/12/sves-logo.png" width="200px" height="150px" class="img_s">
+            <h2 class="img_a">BVRIT HYDERABAD</h2>
+            <br><br>
+            <h4 class="img_b">Students complaints</h4>
+            <form action = "/website" method = "GET">
+                <div align="right">
+                    <input type = "submit" class = "btn" value = "LOGOUT" style="color: white;">
+                </div>
+            </form>
+            <div class="web_c">
+                <% data.forEach(function(data){ %>
+                    <form method = "GET" action = '/web2Submit'>
+                        <h4>ROLL-NO : <%= data.rollno%></h4>
+                        <h4>ISSUE : <%= data.issue%></h4>
+                        <h4>TTIME : <%= data.time%></h4>
+                        <h4>TYPE : <%= data.type%></h4>
+                        <input type = "text" name = "type" value = <%= data.type%> hidden readonly>
+                        <input type = "text" name = "rollno" value = <%= data.rollno%> hidden readonly>
+                        <input type = "text" name = "issue" value = <%= data.issue%> hidden readonly>
+                        <input type = "text" name = "cnt" value = <%= data.cnt%> hidden readonly>
+                        <input type = "text" name = "time" value = <%= data.time%> hidden readonly>
+                        Type solved/unsolved<input type="text" name="status">
+                        <input type="submit" value="update">
+                        <hr>
+                    </form>
+                <% }) %>
+            </div>
+        </div>
+  </body>
+</html>
