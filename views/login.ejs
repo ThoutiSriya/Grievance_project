@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+      <title>login</title>
+        <style>
+            .login_btn{
+                background-color: rgb(211,211,211);
+                border:none; 
+                border-radius:10px; 
+                padding:15px;
+                
+            }
+            .login_btn:hover{
+                background-color: rgb(50,205,50);
+                transition: 0.7s;
+            }
+            .login_btn:focus{
+                outline-style:solid;
+                box-shadow: 0 0 0 4px black;
+            }
+            .login_b{
+                background-image: url("https://img.freepik.com/free-vector/shiny-purple-circles-modern-background_1017-32113.jpg?w=1380&t=st=1669546308~exp=1669546908~hmac=7f1cbb0d850ef0934dcc209361990f5067a940f8c5c1b031c4647190f8ad87bd");
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            .login_f{
+                margin-left: 73%;
+                margin-bottom: 10%;
+                margin-top: -5px;
+                padding-top: 6%;
+                padding-bottom: 5%;
+                padding-left:3%;
+                padding-right:5%;
+                border-radius: 30px;
+                background-color: blueviolet;
+                color: white;
+            }
+            .login_c{
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                margin-top:5%;
+                margin-left: 17%;
+                margin-right: 10%;
+                padding-right:5%;
+                padding-top:5%;
+                height: 500px;
+                width: 900px;
+                background-color: rgb(225,246,255);
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                background-image: url("https://media.istockphoto.com/id/1281150061/vector/register-account-submit-access-login-password-username-internet-online-website-concept.jpg?b=1&s=612x612&w=0&k=20&c=9H5N9Jy8BA9yCzL-Wt5uCeZqETmpPYsJKJ2Nh1-SDaw=");
+                background-size: 600px 600px;
+                background-repeat: no-repeat;
+            }
+            .login_btn{
+                background-color: rgb(211,211,211);
+                border:none; 
+                border-radius:30px; 
+                padding:10px;
+                padding-left: 50px;
+                padding-right: 50px;
+                margin-left:14%;
+            }
+            input[type=text], input[type=password] {
+                margin:2%;
+                padding:10px;
+                border:0;
+                border-radius: 30px;
+                box-shadow:0 0 15px 4px rgba(0,0,0,0.2);
+            }
+            .login_h{
+                margin-left:50px;
+                font-size: 30px;
+            }
+        </style>
+    </head>
+    <body class="login_b">
+        <div class="login_c">
+            <form method="GET" action="loginSubmit" class="login_f"> 
+                <h2 class="login_h">Login</h2>   
+                <br><br><input type="radio" name="type_of_login" value="user" required><b>Student</b>
+                <input type="radio" name="type_of_login" value="faculty" required><b>Faculty</b><br><br>
+                <b>Email</b> <br>
+                <input type="text" name="email" required><br><br>
+                <b>Password </b><br>
+                <input type="password" name="pass" required><br><br>
+                <input type="submit" value="login" class="login_btn">
+            </form>
+        </div>
+    </body>
+</html>
