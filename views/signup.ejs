@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+      <title>signup</title>
+      <style>
+        .a{
+          background-image: url("https://img.freepik.com/free-vector/modern-soft-colorful-watercolor-texture-elegant-background-vector_1055-12434.jpg?w=900&t=st=1669552431~exp=1669553031~hmac=145df2f8e5dd37ce74ced9ea3c26b4227044838b308d66b8471104b9eadf8536");
+          background-repeat: no-repeat;
+          background-size: 100% 100%;
+        }
+        .child {
+          display: inline-block;
+          padding: 2rem 2rem;
+          height: 500px;
+          width:400px;
+          vertical-align: middle;
+          margin-right:2%;
+          margin-left: 15%;
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        .child1 {
+          display: inline-block;
+          padding: 2rem 2rem;
+          vertical-align: middle;
+          height: 500px;
+          width:400px;
+          margin-left:2%;
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        input[type=text], input[type=password], input[type=number] {
+          margin:2%;
+          padding:4px;
+          border:0;
+          border-radius: 30px;
+          box-shadow:0 0 15px 4px rgba(0,0,0,0.2);
+        }
+        input[type=submit]{
+            background-color: rgb(211,211,211);
+            border:none; 
+            border-radius:10px; 
+            padding:15px;
+        }
+        input[type=submit]:hover{
+            background-color:#90ee90;
+            transition: 0.7s;
+        }
+        input[type=submit]:focus{
+            outline-style:solid;
+            box-shadow: 0 0 0 4px black;
+        }
+    </style>
+  </head>
+    <body class="a">
+        <h1 style="text-align: center;">BVRIT HYDERABAD College of Engineering for Women</h1><br><br><br>
+        <div class="parent">
+            <div class="child">
+                <%- include(partials + 'stuSign.ejs') %>
+            </div>
+            <div class="child1">
+                <%- include(partials + 'facSign.ejs') %>
+            </div>
+        </div>
+    </body>
+</html>
