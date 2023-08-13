@@ -31,7 +31,7 @@ app.set('views', __dirname + "/views");
 const appLocals = require('./app-local.js');
 app.locals = appLocals
 
-app.get('/', function(req, res){
+app.get('/website', function(req, res){
     res.render("main",{});
 })
 app.get('/signup', function (req, res) { 
