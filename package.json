@@ -2,10 +2,10 @@
   "name": "web-dev",
   "version": "1.0.0",
   "description": "",
-  "main": "gri.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node javaScript/gri.js",
-    "dev": "nodemon javaScript/gri.js"
+    "start": "node javaScript/index.js",
+    "dev": "nodemon javaScript/index.js"
   },
   "keywords": [],
   "author": "",
