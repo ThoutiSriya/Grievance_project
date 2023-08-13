@@ -27,6 +27,7 @@ var n= 'a';
 var d='a';
 var iss = 'a';
 app.set('view engine','ejs');
+app.set('views', __dirname + "/views");
 const appLocals = require('./app-local.js');
 app.locals = appLocals
 
