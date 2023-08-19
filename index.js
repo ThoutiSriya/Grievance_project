@@ -47,6 +47,9 @@ app.get('/', function(req, res){
 app.get('/signup', function (req, res) { 
     res.render("signup",{});
 })
+app.get('/main', function(req, res){
+    res.render("main",{});
+})
 app.get("/signupSubmit1", function (req, res) { 
     var arr1 = ['05', '66', '12', '04', '02'];
     var arr2 = ['1a', '1A', '5a', '5A'];
