@@ -2,6 +2,7 @@ const { initializeApp, cert } = require('firebase-admin/app');
 const { getFirestore} = require('firebase-admin/firestore');
 var serviceAccount = require("./key_project.json");
 var dateTime = require('node-datetime');
+const bcrypt = require("bcrypt");
 const IS_EMULATOR = ((typeof process.env.FUNCTIONS_EMULATOR === 'boolean' && process.env.FUNCTIONS_EMULATOR) || process.env.FUNCTIONS_EMULATOR === 'true');
 
 if (IS_EMULATOR) {
@@ -12,11 +13,14 @@ if (IS_EMULATOR) {
     })
 }
 
+
 const
      { FieldValue } = require('firebase-admin/firestore');
 initializeApp({
   credential: cert(serviceAccount)
 });
+
+
 
 const db = getFirestore();
 var express = require('express');  
@@ -27,11 +31,16 @@ var n= 'a';
 var d='a';
 var iss = 'a';
 app.set('view engine','ejs');
-app.set('views', __dirname + "/views");
 const appLocals = require('./app-local.js');
 app.locals = appLocals
 
-app.get('/', function(req, res){
+
+function hashPasswordSync(password) {
+    const saltRounds = 10;
+    return bcrypt.hashSync(password, saltRounds);
+  }
+  
+app.get('/website', function(req, res){
     res.render("main",{});
 })
 app.get('/signup', function (req, res) { 
@@ -101,12 +110,14 @@ app.get("/signupSubmit1", function (req, res) {
         }
     }
     if(f == 1){
+        const hashedPassword = hashPasswordSync(req.query.pass);
+        console.log(hashedPassword)
         db.collection("data_users").add({
             name: req.query.user,
             email: req.query.email,
             phone: req.query.phone,
             address: req.query.add,
-            password: req.query.pass,
+            password: hashedPassword,
             rollno: req.query.roll,
             count: 0,
             gri:{}
@@ -122,12 +133,14 @@ app.get("/signupSubmit1", function (req, res) {
     }
 });
 app.get("/signupSubmit2",function(req, res){
+    const hashedPassword = hashPasswordSync(req.query.pass);
+    console.log(hashedPassword)
     db.collection('data_faculty').add({
         name: req.query.user,
         email: req.query.email,
         phone: req.query.phone,
         address: req.query.add,
-        password: req.query.pass,
+        password: hashedPassword,
         dep : req.query.id
     }).then(()=>{
         var obj = ["register done successfully"];
@@ -141,12 +154,17 @@ app.get("/loginSubmit", function(req, res){
     n = req.query.type_of_login;
     u = req.query.email;
     if(n == 'user'){
-        db.collection("data_users").where('email', '==', req.query.email).where('password','==',req.query.pass).get().then((docs)=>{
+        db.collection("data_users").where('email', '==', req.query.email).get().then((docs)=>{
             var flag = false;
             docs.forEach((doc)=>{
-                flag = true;
-                let array1 = {rollno : doc.data().rollno};
-                res.render("stuDashboard", {data: array1});
+                var storedHash = doc.data().password;
+                const enp = bcrypt.compareSync(req.query.pass, storedHash);
+                console.log(enp)
+                if(enp){
+                    flag = true;
+                    let array1 = {rollno : doc.data().rollno};
+                    res.render("stuDashboard", {data: array1});
+                } 
             })
             if(flag == false){
                 var obj = ["invalid credentials"];
@@ -155,12 +173,18 @@ app.get("/loginSubmit", function(req, res){
         })
     }
     else if(n == 'faculty'){
-        db.collection("data_faculty").where('email', '==', req.query.email).where('password','==',req.query.pass).get().then((docs)=>{
+        var enp = hashPasswordSync(req.query.pass);
+        console.log(enp)
+        db.collection("data_faculty").where('email', '==', req.query.email).get().then((docs)=>{
             var flag = false;
             docs.forEach((doc)=>{
-                flag = true;
-                d = doc.data().dep;
-                res.render("facDashboard", {});
+                var storedHash = doc.data().password;
+                const enp = bcrypt.compareSync(req.query.pass, storedHash);
+                if(enp){
+                    flag = true;
+                    d = doc.data().dep;
+                    res.render("facDashboard", {});
+                }
             })
             if(flag == false){
                 var obj = ["invalid credentials"];
