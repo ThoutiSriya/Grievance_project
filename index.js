@@ -40,7 +40,7 @@ function hashPasswordSync(password) {
     return bcrypt.hashSync(password, saltRounds);
   }
   
-app.get('/website', function(req, res){
+app.get('/', function(req, res){
     res.render("main",{});
 })
 app.get('/signup', function (req, res) { 
